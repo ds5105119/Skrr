@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Button } from "@/components/button";
 
 export default function Home() {
     return (
@@ -49,12 +48,6 @@ export default function Home() {
                     </h2>
                     <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
                 </a>
-            </div>
-
-            <div>
-                <Button>Btn</Button>
-                <br />
-                <Button id="practice">Btn+1</Button>
             </div>
         </main>
     );
