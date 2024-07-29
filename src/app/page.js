@@ -54,7 +54,7 @@ export default function Home() {
             <div>
                 <Button>Btn</Button>
                 <br />
-                <Button id="practice">Btn+id</Button>
+                <Button id="practice">Btn+1</Button>
             </div>
         </main>
     );
