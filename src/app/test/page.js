@@ -6,12 +6,34 @@ const App = () => {
     const [messages, setMessages] = useState([]);
     const [currentTypingId, setCurrentTypingId] = useState(null);
 
-    const handleSendMessage = (message) => {
+    const fetchAIHandler = async (userData) => {
+        const response = await fetch("https://open-api.jejucodingcamp.workers.dev/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+            redirect: "follow",
+        });
+
+        const jsonResponse = await response.json();
+
+        return jsonResponse.choices[0].message.content;
+    };
+
+    const handleSendMessage = async (message) => {
+        const res = await fetchAIHandler([
+            {
+                role: "system",
+                content: "assistant는 친절한 답변가이다.",
+            },
+            { role: "user", content: message },
+        ]);
         setMessages((prevMessages) => [
             ...prevMessages,
             { text: message, isUser: true },
             {
-                text: `Your message is: "${message}"`,
+                text: `Your message is: "${JSON.stringify(res)}"`,
                 isUser: false,
                 isTyping: true,
                 id: Date.now(),

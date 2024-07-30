@@ -1,7 +1,10 @@
 import { createGlobalStyle } from "styled-components";
+import "@/fonts/font.css";
 
 const GlobalStyle = createGlobalStyle`
-* {  margin: 0.5rem;  }
+* {
+    font-family: 'Uiyeun';
+    margin: 0.5rem;  }
 `;
 
 export default GlobalStyle;
