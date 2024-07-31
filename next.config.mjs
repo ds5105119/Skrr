@@ -1,4 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const OPENAI_API_URL = process.env.OPENAI_API_ENDPOINT_URL;
+
+const nextConfig = {
+    reactStrictMode: true,
+    async rewrites() {
+        return [
+            {
+                source: "/api/openai_api",
+                destination: OPENAI_API_URL,
+            },
+        ];
+    },
+};
 
 export default nextConfig;

@@ -1,25 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import fetchAIHandler from "@/api/openai";
 
 const App = () => {
     const [messages, setMessages] = useState([]);
     const [currentTypingId, setCurrentTypingId] = useState(null);
-
-    const fetchAIHandler = async (userData) => {
-        const response = await fetch("https://open-api.jejucodingcamp.workers.dev/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-            redirect: "follow",
-        });
-
-        const jsonResponse = await response.json();
-
-        return jsonResponse.choices[0].message.content;
-    };
 
     const handleSendMessage = async (message) => {
         const res = await fetchAIHandler([
