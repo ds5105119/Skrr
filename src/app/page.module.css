@@ -171,4 +171,8 @@
             transition: all 300ms ease;
         }
     }
+
+    .headertext {
+        font-size: 2rem;
+    }
 }
