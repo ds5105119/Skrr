@@ -2,7 +2,7 @@
 
 ## 💁‍♂️ Project Information
 
-<img src="https://vigorous-summer-9f1.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe356c91b-b91d-4db6-a60d-8969d0bcddb6%2Ff24133c3-2f45-41a1-ab0d-b30cb40d840c%2FLanding_Image.png?table=block&id=0c9112d9-5e0b-4c50-a5ef-75054de2c14e&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6">
+<a href="https://skrrr.vercel.app"><img src="https://vigorous-summer-9f1.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe356c91b-b91d-4db6-a60d-8969d0bcddb6%2Ff24133c3-2f45-41a1-ab0d-b30cb40d840c%2FLanding_Image.png?table=block&id=0c9112d9-5e0b-4c50-a5ef-75054de2c14e&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6"></a>
 
 ### 🎯 목적
 
