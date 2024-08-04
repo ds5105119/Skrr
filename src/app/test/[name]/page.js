@@ -16,6 +16,7 @@ import IconButton from "@/components/icon-button";
 import ButtonList from "@/components/button-list";
 import MessageList from "@/components/message-list";
 import Modal from "@/components/modal";
+import ResultForm from "@/components/resultform";
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -32,6 +33,7 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [messages, setMessages] = useState([]);
+    const [isTestEnd, setIsTestEnd] = useState(false);
     const status = {
         외모: getRandomInt(0, 100),
         지능: getRandomInt(0, 100),
@@ -105,7 +107,33 @@ const App = () => {
         }
     };
 
-    const testEndHandler = () => {};
+    const testEndHandler = async () => {
+        try {
+            const request = await fetchAIHandler([
+                {
+                    role: "system",
+                    content: JSON.stringify({
+                        지시문: questions["end"]["question"],
+                        history: messages.map(({ text }) => text),
+                    }),
+                },
+                {
+                    role: "user",
+                    content: JSON.stringify(questions["end"]["question"]),
+                },
+            ]);
+            const jsonResponse = JSON.parse(request);
+
+            if (!jsonResponse["MBTI"] || !jsonResponse["job"] || !jsonResponse["평가"]) {
+                throw new Error("fetchAIHandler error: wrong ai answer");
+            }
+
+            setIsTestEnd(jsonResponse);
+        } catch (error) {
+            alert(error);
+            testEndHandler();
+        }
+    };
 
     const handelSubmitButton = async (index) => {
         setIsLoading(true);
@@ -215,6 +243,8 @@ const App = () => {
                     </Modal>
                 )}
             </div>
+
+            <div>{isTestEnd && <ResultForm name={userName} response={isTestEnd} />}</div>
         </main>
     );
 };
