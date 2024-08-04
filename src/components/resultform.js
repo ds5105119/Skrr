@@ -43,6 +43,7 @@ const ModalBox = styled.div`
 
     background: rgba(255, 255, 255, 1);
     z-index: 5;
+    box-shadow: 3px 4px 14px 0px rgba(0, 0, 0, 0.15);
 
     animation: ${slideUp} 1s ease-out forwards;
 `;
