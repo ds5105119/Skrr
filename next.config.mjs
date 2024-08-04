@@ -2,7 +2,7 @@
 const OPENAI_API_URL = process.env.OPENAI_API_ENDPOINT_URL;
 
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     async rewrites() {
         return [
             {

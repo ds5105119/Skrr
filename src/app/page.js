@@ -1,60 +1,86 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { IoShareSocialSharp, IoLink } from "react-icons/io5";
+
 import styles from "./page.module.css";
 import Button from "@/components/button";
+import IconButton from "@/components/icon-button";
+import StyledInput from "@/components/input";
+import Navbar from "@/components/navbar";
 import { palette } from "@/lib/styles/colorPalette";
-import { useRouter, usePathname, useSearchParams, useSelectedLayoutSegment, useSelectedLayoutSegments, redirect, notFound } from "next/navigation";
 
 export default function Home() {
     const router = useRouter();
+    const [message, setMessage] = useState("");
+
+    const handleChange = (event) => {
+        if (event.target.value.length < 14) {
+            setMessage(event.target.value);
+        }
+    };
+
+    const handleSubmitButton = () => {
+        if (message) {
+            router.push(`/test?name=${message}`);
+        } else {
+            alert("이름을 입력해 주세요!");
+        }
+    };
+
+    const handleDeveloperButton = () => {
+        router.push("https://github.com/ds5105119");
+    };
+
+    const handleCopyClipBoard = async (text) => {
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            alert("클립보드에 링크가 복사되었어요.");
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <main className={styles.main}>
-            <div className={styles.description}>
-                <p>나의 2세는??</p>
+            <Navbar>
+                <div></div>
+                <div>
+                    {" "}
+                    <span className={styles.headertext}>나의 2세는??</span>{" "}
+                </div>
+                <div></div>
+            </Navbar>
+            <div className={styles.title}>
+                <Image className={styles.titleimage} src="/landingimage.png" priority fill />
             </div>
 
-            <div className={styles.center}>
-                <Image className={styles.logo} src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
-            </div>
+            <div className={styles.content}>
+                <div className={styles.nameinput}>
+                    <StyledInput placeholder="이름 입력하기" value={message} onChange={(event) => handleChange(event)}></StyledInput>
+                </div>
 
-            <div className={styles.grid}>
-                <a href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" className={styles.card} target="_blank" rel="noopener noreferrer">
-                    <h2>
-                        Docs <span>-&gt;</span>
-                    </h2>
-                    <p>Find in-depth information about Next.js features and API.</p>
-                </a>
+                <div className={styles.button}>
+                    <Button fill="true" color="#0D0D0D" bordertype="rect" onClick={handleSubmitButton}>
+                        <div className={styles.h3}>시작하기</div>
+                    </Button>
+                </div>
 
-                <a href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" className={styles.card} target="_blank" rel="noopener noreferrer">
-                    <h2>
-                        Learn <span>-&gt;</span>
-                    </h2>
-                    <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-                </a>
+                <hr className={styles.hr} />
 
-                <a href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" className={styles.card} target="_blank" rel="noopener noreferrer">
-                    <h2>
-                        Templates <span>-&gt;</span>
-                    </h2>
-                    <p>Explore starter templates for Next.js.</p>
-                </a>
+                <div className={styles.button}>
+                    <Button fill="true" color="#0D0D0D" bordertype="rect" onClick={handleDeveloperButton}>
+                        <div className={styles.h3}>제작자</div>
+                    </Button>
+                </div>
 
-                <a href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" className={styles.card} target="_blank" rel="noopener noreferrer">
-                    <h2>
-                        Deploy <span>-&gt;</span>
-                    </h2>
-                    <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
-                </a>
-            </div>
-            <div className={styles.grid}>
-                <Button color={palette.blue2} border="round" fill="true" onClick={() => router.push("/test")}>
-                    시작하기
-                </Button>
-                <Button color={palette.blue2} border="round" fill="flase" onClick={() => router.push("/test")}>
-                    instagram
-                </Button>
+                <div className={styles.h3}>공유하기</div>
+
+                <IconButton color="#0D0D0D" fill="true" onClick={() => handleCopyClipBoard(router.asPath)}>
+                    <IoLink size={26} color={"white"} />
+                </IconButton>
             </div>
         </main>
     );

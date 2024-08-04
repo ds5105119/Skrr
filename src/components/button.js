@@ -1,36 +1,30 @@
-"use client";
-/* user-select는 button의 Content를 선택할 수 없도록 한다. */
-
 import styled, { css } from "styled-components";
 
 const borderType = {
-    round: css`
-        --button-border-radius: 2rem;
-    `,
-    rect: css`
-        --button-border-radius: 0.2rem;
-    `,
+    round: "4em",
+    rect: "0.6em",
 };
 
 const StyledButton = styled.button`
-    ${(props) => borderType[props.border]}
+    padding: 0.62em 1.5em 0.62em 1.5em;
 
-    padding: 0.65rem 1.5rem 0.65rem 1.5rem;
-    font-size: 1rem;
-
-    border-radius: var(--button-border-radius);
-    transition: 150ms;
     border: none;
+    border-radius: ${({ bordertype }) => bordertype};
 
-    ${(props) =>
-        props.fill == "true"
+    transition: 150ms;
+    user-select: none;
+    cursor: pointer;
+
+    ${({ fill, color }) =>
+        fill == "true"
             ? css`
                   color: white;
-                  background-color: ${props.color};
+                  box-shadow: 3px 4px 14px 0px rgba(0, 0, 0, 0.15);
+                  background-color: ${color};
               `
             : css`
                   color: black;
-                  box-shadow: 0 0 0 2px ${props.color} inset;
+                  box-shadow: 0 0 0 2px ${color} inset, 3px 4px 14px 0px #999999;
                   background-color: white;
               `}
 
@@ -44,12 +38,17 @@ const StyledButton = styled.button`
         transition: 80ms;
     }
 
-    user-select: none;
+    &:disabled {
+        background-color: grey;
+        opacity: 0.6;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
 `;
 
-const Button = ({ color, fill, border, children, onClick }) => {
+const Button = ({ color, fill, bordertype, children, onClick, disabled }) => {
     return (
-        <StyledButton color={color} fill={fill} border={border} onClick={onClick}>
+        <StyledButton color={color} fill={fill} bordertype={borderType[bordertype]} onClick={onClick} disabled={disabled}>
             {children}
         </StyledButton>
     );

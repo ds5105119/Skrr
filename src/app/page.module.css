@@ -1,38 +1,121 @@
 .main {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 6rem;
-    min-height: 100vh;
 }
 
-
-.description {
-    display: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    font-size: 0.85rem;
-    max-width: var(--max-width);
+.title {
     width: 100%;
-    z-index: 2;
-    font-family: var(--font-mono);
-}
-
-.description a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.description p {
+    height: auto;
+    aspect-ratio: 1.1048;
     position: relative;
-    margin: 0;
-    padding: 1rem;
-    background-color: rgba(var(--callout-rgb), 0.5);
-    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-    border-radius: var(--border-radius);
+    background-color: white;
+}
+
+.titleimage {
+    object-fit: cover;
+}
+
+.content {
+    width: 100%;
+    max-width: var(--max-width);
+
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem 4rem 2rem;
+
+    background-color: rgba(255, 228, 228, 1);
+}
+
+.landingImage {
+    background-image: url("/landing.jpg");
+}
+
+.nameinput {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 16px 15px 16px 15px;
+    box-shadow: 0 0 0 2.5px rgba(0, 0, 0, 0.8);
+}
+
+.button {
+    width: 90%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 28px 0 28px 0;
+}
+
+.button button {
+    width: 100%;
+    height: 100%;
+    transition: all 300ms ease;
+    font-size: 1.5rem;
+
+    &:active {
+        width: 98%;
+        height: 98%;
+        transition: all 300ms ease;
+    }
+}
+
+.hr {
+    width: 70%;
+    height: 1px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.headertext {
+    font-size: 2.3rem;
+}
+
+.h2 {
+    font-size: 3rem;
+}
+
+.h3 {
+    font-size: 2rem;
+}
+
+@media (max-width: 450px) {
+    .content {
+        width: 100%;
+        max-width: var(--max-width);
+
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2.5rem 4rem 2.5rem;
+
+        background-color: rgba(255, 228, 228, 1);
+    }
+
+    .button button {
+        width: 100%;
+        height: 100%;
+        transition: all 300ms ease;
+        font-size: 1.5rem;
+
+        &:active {
+            width: 98%;
+            height: 98%;
+            transition: all 300ms ease;
+        }
+    }
 }
 
 .code {
@@ -129,10 +212,6 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-    .content {
-        padding: 4rem;
-    }
-
     .grid {
         grid-template-columns: 1fr;
         margin-bottom: 120px;
@@ -163,14 +242,6 @@
 
     .description a {
         padding: 1rem;
-    }
-
-    .description p,
-    .description div {
-        display: flex;
-        justify-content: center;
-        position: fixed;
-        width: 100%;
     }
 
     .description p {

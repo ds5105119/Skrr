@@ -1,18 +1,15 @@
-const MessageForm = ({ onSendMessage }) => {
-    const [message, setMessage] = useState("");
+import styled from "styled-components";
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        onSendMessage(message);
-        setMessage("");
-    };
+const StyledInput = styled.input`
+    width: 100%;
+    font-size: 1.6rem;
+    text-align: center;
+    border: none;
+    cursor: text;
 
-    return (
-        <form onSubmit={handleSubmit} className="message-form">
-            <input type="text" value={message} onChange={(event) => setMessage(event.target.value)} className="message-input" />
-            <button type="submit" className="send-button">
-                Send
-            </button>
-        </form>
-    );
-};
+    &:focus {
+        outline: none;
+    }
+`;
+
+export default StyledInput;

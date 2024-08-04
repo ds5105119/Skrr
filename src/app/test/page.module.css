@@ -1,0 +1,44 @@
+.main {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backgroundImg {
+    z-index: -100;
+    object-fit: cover;
+}
+
+.chatbox {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 0px;
+    overflow: auto;
+}
+
+.modalTitle {
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+}
+
+.modelCloseButton {
+    height: 4rem !important;
+    font-size: 1.3rem !important;
+}
+
+.blackColor {
+    color: black;
+}
+
+.chatStartMessage {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    color: gray;
+}
