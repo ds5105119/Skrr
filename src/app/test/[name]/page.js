@@ -238,7 +238,7 @@ const App = () => {
                         <p className={styles.modalTitle}>{questions[currentQuestionIndex]["question"]}</p>
                         <ButtonList items={questions[currentQuestionIndex]["answer"]} submit={handelSubmitButton} />
                         <Button className={styles.modelCloseButton} color={"black"} bordertype="rect" fill="true" onClick={() => setIsModalOpen(false)}>
-                            집적 입력하기
+                            직접 입력하기
                         </Button>
                     </Modal>
                 )}
