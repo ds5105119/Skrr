@@ -69,11 +69,9 @@ const StyledContent = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+    align-self: center;
     width: 75%;
     height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     > button {
         width: 100%;
