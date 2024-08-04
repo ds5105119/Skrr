@@ -49,6 +49,8 @@ const ResultForm = ({ response, name }) => {
         <Backdrop>
             <ModalBox>
                 {name}의 직업은?: {response["job"]}
+                {name}의 MBTI는?: {response["MBTI"]}
+                {name}에 대한 평가: {response["평가"]}
             </ModalBox>
         </Backdrop>
     );
