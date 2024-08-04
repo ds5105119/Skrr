@@ -8,22 +8,6 @@ export const metadata = {
     icons: {
         icon: "/favicon.ico",
     },
-    openGraph: {
-        images: [
-            {
-                url: "/landingimage.png",
-                alt: "이미지 설명",
-            },
-        ],
-    },
-    twitter: {
-        images: [
-            {
-                url: "/landingimage.png",
-                alt: "이미지 설명",
-            },
-        ],
-    },
 };
 
 export default function RootLayout({ children }) {
