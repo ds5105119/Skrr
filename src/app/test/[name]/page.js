@@ -131,7 +131,7 @@ const App = () => {
             <Image className={styles.backgroundImg} src={"/background.jpg"} alt="img" quality={70} fill={true} />
             <Navbar>
                 <div>
-                    <IconButton fill="true" color={"#FFFFFF"} onClick={() => router.back()}>
+                    <IconButton fill="true" color={"#FFFFFF"} onClick={() => router.push("/")}>
                         <IoChevronBack size={12} color={"black"}></IoChevronBack>
                     </IconButton>
                 </div>

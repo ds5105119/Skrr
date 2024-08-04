@@ -24,7 +24,8 @@ export default function Home() {
 
     const handleSubmitButton = () => {
         if (message) {
-            router.push(`/test?name=${message}`);
+            window.location.href = `/test/${message}`;
+            window.location.replace(`/test/${message}`);
         } else {
             alert("이름을 입력해 주세요!");
         }
