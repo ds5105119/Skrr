@@ -15,7 +15,7 @@ const slideUp = keyframes`
 const StyledText = styled.p`
     padding: 0.8rem 1rem 0.8rem 1rem;
     background-color: rgba(0, 0, 0, 0.1);
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     animation: ${slideUp} 50ms ease-out forwards;
 `;

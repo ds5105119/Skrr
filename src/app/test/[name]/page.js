@@ -219,7 +219,7 @@ const App = () => {
                         <IoChevronBack size={12} color={"black"}></IoChevronBack>
                     </IconButton>
                 </div>
-                <div>{userName}키우기</div>
+                <div className={styles.navbartext}>{userName}키우기</div>
                 <div>
                     <Button fill="true" bordertype="round" color={"#FFFFFF"} onClick={() => setIsModalOpen(true)} disabled={isLoading}>
                         <p className={styles.blackColor}>선택지 열기</p>

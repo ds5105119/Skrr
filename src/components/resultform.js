@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import Button from "./button";
 
 // Modal keyframe
 const slideUp = keyframes`
@@ -21,6 +22,7 @@ const Backdrop = styled.div`
     width: 100%;
     height: 100%;
 
+    background: rgba(255, 230, 230, 1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,27 +32,64 @@ const Backdrop = styled.div`
 
 // Model 박스
 const ModalBox = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 90%;
+
+    border-radius: 1.8rem;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 
     background: rgba(255, 255, 255, 1);
-    text-align: center;
     z-index: 5;
 
     animation: ${slideUp} 1s ease-out forwards;
+`;
+
+const StyledTitle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0px 0px 40px 0px;
+    font-size: 3.5rem;
+`;
+
+const StyledText = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    padding-left: 2rem;
+    font-size: 1.8rem;
+`;
+
+const StyledContent = styled.div`
+    padding: 0rem 2rem 2rem 2rem;
+`;
+
+const ButtonWrapper = styled.div`
+    width: 75%;
+    height: 60px;
+
+    > button {
+        width: 100%;
+    }
 `;
 
 const ResultForm = ({ response, name }) => {
     return (
         <Backdrop>
             <ModalBox>
-                {name}의 직업은?: {response["job"]}
-                {name}의 MBTI는?: {response["MBTI"]}
-                {name}에 대한 평가: {response["평가"]}
+                <StyledTitle>{name}의 미래는?</StyledTitle>
+                <StyledText>직업: {response["job"]}</StyledText>
+                <StyledText>MBTI: {response["MBTI"]}</StyledText>
+                <StyledContent>{response["평가"]}</StyledContent>
+                <ButtonWrapper>
+                    <Button fill="true" color="black" bordertype="rect">
+                        <a href="https://skrrr.vercel.app">HOME</a>
+                    </Button>
+                </ButtonWrapper>
             </ModalBox>
         </Backdrop>
     );

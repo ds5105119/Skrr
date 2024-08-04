@@ -4,10 +4,13 @@
     width: 100%;
     height: 100vh;
     height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
 }
 
 .backgroundImg {
@@ -23,7 +26,7 @@
 }
 
 .modalTitle {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.8rem;
 }
 
@@ -41,4 +44,8 @@
     text-align: center;
     padding: 10px 0px 10px 0px;
     color: gray;
+}
+
+.navbartext {
+    font-size: 1.6rem;
 }

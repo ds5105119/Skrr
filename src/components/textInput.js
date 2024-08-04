@@ -38,7 +38,7 @@ const StyleTextarea = styled.textarea`
     word-break: normal;
     resize: none;
     overflow: auto;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
 
     background-color: transparent;
     border: none;
