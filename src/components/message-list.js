@@ -110,19 +110,19 @@ const MessageList = ({ messages, currentTypingId, onEndTyping }) => {
 
     return (
         <StyledMessageList>
-            {groupMessage.map((messagePiece) =>
+            {groupMessage.map((messagePiece, pieceIndex) =>
                 messagePiece[0].isUser ? (
-                    <StyledUserMessage>
+                    <StyledUserMessage key={pieceIndex}>
                         {messagePiece.map((message, index) => (
-                            <Message key={index} {...message} onEndTyping={onEndTyping} currentTypingId={currentTypingId} />
+                            <Message text={message} key={index} onEndTyping={onEndTyping} currentTypingId={currentTypingId} />
                         ))}
                     </StyledUserMessage>
                 ) : (
-                    <StyledOtherMessageWrapper>
+                    <StyledOtherMessageWrapper key={pieceIndex}>
                         <Image src="/character1-white.png" alt="butler profile" quality={30} width={40} height={40} style={profileStyle} />
                         <StyledOtherMessage>
                             {messagePiece.map((message, index) => (
-                                <Message key={index} {...message} onEndTyping={onEndTyping} currentTypingId={currentTypingId} />
+                                <Message text={message} key={index} onEndTyping={onEndTyping} currentTypingId={currentTypingId} />
                             ))}
                         </StyledOtherMessage>
                     </StyledOtherMessageWrapper>

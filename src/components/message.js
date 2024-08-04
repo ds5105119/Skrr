@@ -20,7 +20,7 @@ const StyledText = styled.p`
     animation: ${slideUp} 50ms ease-out forwards;
 `;
 
-const Message = ({ text, key }) => {
+const Message = ({ text }) => {
     return <StyledText> {text} </StyledText>;
 };
 
