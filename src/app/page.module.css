@@ -20,7 +20,7 @@
 }
 
 .titleimage {
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .content {
