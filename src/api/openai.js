@@ -4,7 +4,7 @@ const fetchAIHandler = async (userData) => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify(userData).replace(/\n/gi, ""),
         redirect: "follow",
     });
 

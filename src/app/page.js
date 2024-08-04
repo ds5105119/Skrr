@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { IoShareSocialSharp, IoLink } from "react-icons/io5";
+import { IoLink } from "react-icons/io5";
+import { FaArrowDown } from "react-icons/fa";
 
 import styles from "./page.module.css";
 import Button from "@/components/button";
 import IconButton from "@/components/icon-button";
 import StyledInput from "@/components/input";
 import Navbar from "@/components/navbar";
-import { palette } from "@/lib/styles/colorPalette";
 
 export default function Home() {
     const router = useRouter();
@@ -24,7 +24,6 @@ export default function Home() {
 
     const handleSubmitButton = () => {
         if (message) {
-            window.location.href = `/test/${message}`;
             window.location.replace(`/test/${message}`);
         } else {
             alert("이름을 입력해 주세요!");
@@ -59,6 +58,10 @@ export default function Home() {
             </div>
 
             <div className={styles.content}>
+                <div className={styles.animationwrapper}>
+                    <FaArrowDown className={styles.contentarrow} size={40} />
+                </div>
+
                 <div className={styles.nameinput}>
                     <StyledInput placeholder="이름 입력하기" value={message} onChange={(event) => handleChange(event)}></StyledInput>
                 </div>
@@ -77,12 +80,14 @@ export default function Home() {
                     </Button>
                 </div>
 
-                <div className={styles.h3}>공유하기</div>
+                <div className={styles.sharetext}>공유하기</div>
 
                 <IconButton color="#0D0D0D" fill="true" onClick={() => handleCopyClipBoard(router.asPath)}>
                     <IoLink size={26} color={"white"} />
                 </IconButton>
             </div>
+
+            <div className={styles.bottomnav}>ⓒ IIH®</div>
         </main>
     );
 }

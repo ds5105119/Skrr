@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { IoChevronBack } from "react-icons/io5";
 import styles from "./page.module.css";
 
-import fetchQuestions from "@/api/fetch-questions";
+import fetchAIHandler from "@/api/openai";
 import questions from "@/lib/resource/question";
 
 import Navbar from "@/components/navbar";
@@ -18,11 +17,13 @@ import ButtonList from "@/components/button-list";
 import MessageList from "@/components/message-list";
 import Modal from "@/components/modal";
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 const App = () => {
     const router = useRouter();
-
-    const searchParams = useSearchParams();
-    const userName = searchParams.get("name");
+    const userName = decodeURI(window.location.pathname.split("/").pop());
 
     const messageEndRef = useRef(null);
 
@@ -31,10 +32,17 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [messages, setMessages] = useState([]);
-    const [name, setName] = useState("");
+    const status = {
+        외모: getRandomInt(0, 100),
+        지능: getRandomInt(0, 100),
+        예술성: getRandomInt(0, 100),
+        "이성적 매력": getRandomInt(0, 100),
+        성격: getRandomInt(0, 100),
+        반사회성: getRandomInt(0, 100),
+        "예상 성인 키": getRandomInt(140, 200),
+    };
 
     const putUserMessage = (text) => {
-        setIsLoading(false);
         setIsModalOpen(false);
 
         setMessages((prevMessages) => [
@@ -47,8 +55,6 @@ const App = () => {
     };
 
     const handleAIMessage = (text) => {
-        setIsLoading(true);
-
         const aiMessage = {
             text: text,
             isUser: false,
@@ -65,35 +71,84 @@ const App = () => {
         }
     };
 
-    const handelSubmitButton = async (index) => {
-        putUserMessage(questions[currentQuestionIndex]["answer"][index]);
+    const sendMessageHandler = async (message) => {
+        try {
+            const request = await fetchAIHandler([
+                {
+                    role: "system",
+                    content: JSON.stringify({
+                        지시문: questions[0],
+                        hint: questions[currentQuestionIndex]["hint"],
+                        name: userName,
+                        status: {
+                            ...status,
+                            ...questions[currentQuestionIndex]["status"],
+                        },
+                        history: messages.map(({ text }) => text),
+                    }),
+                },
+                {
+                    role: "user",
+                    content: message,
+                },
+            ]);
+            const jsonResponse = JSON.parse(request);
 
-        const systemContent = questions[0] + questions[currentQuestionIndex]["question"];
-        const userContent = questions[currentQuestionIndex]["answer"][index];
-        const response = await fetchQuestions(systemContent, userContent);
+            if (!jsonResponse["answer"]) {
+                throw new Error("fetchAIHandler error: no content");
+            }
 
-        if (response) {
-            setcurrentQuestionIndex((preIdx) => preIdx + 1);
-            handleAIMessage(response["answer"]);
-            setIsModalOpen(true);
-        } else {
-            handleAIMessage("다시 선택해줄 수 있을까?");
+            return jsonResponse;
+        } catch (error) {
+            console.error("Failed to parse JSON response:", error);
+            return false;
         }
     };
 
-    const handleSendMessage = async (message) => {
-        putUserMessage(message);
+    const testEndHandler = () => {};
 
-        const systemContent = questions[0] + questions[currentQuestionIndex]["question"];
-        const response = await fetchQuestions(systemContent, message);
+    const handelSubmitButton = async (index) => {
+        setIsLoading(true);
+        putUserMessage(questions[currentQuestionIndex]["answer"][index]);
+
+        const userContent = questions[currentQuestionIndex]["answer"][index];
+        const response = await sendMessageHandler(userContent);
 
         if (response) {
-            setcurrentQuestionIndex((preIdx) => preIdx + 1);
+            if (currentQuestionIndex < questions.info.ansCount) {
+                setcurrentQuestionIndex((preIdx) => preIdx + 1);
+            } else {
+                testEndHandler();
+                return true;
+            }
             handleAIMessage(response["answer"]);
             setIsModalOpen(true);
         } else {
             handleAIMessage("다시 선택해줄 수 있을까?");
         }
+
+        setIsLoading(false);
+    };
+
+    const handleSendMessage = async (message) => {
+        setIsLoading(true);
+        putUserMessage(message);
+
+        const response = await sendMessageHandler(message);
+
+        if (response) {
+            if (currentQuestionIndex < questions.info.ansCount) {
+                setcurrentQuestionIndex((preIdx) => preIdx + 1);
+            } else {
+                testEndHandler();
+                return true;
+            }
+            handleAIMessage(response["answer"]);
+        } else {
+            handleAIMessage("다시 선택해줄 수 있을까?");
+        }
+
+        setIsLoading(false);
     };
 
     const handleEndTyping = (id) => {
@@ -112,6 +167,7 @@ const App = () => {
         messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }, [messages, currentQuestionIndex]);
 
+    // 문제 업데이트
     useEffect(() => {
         updateQuestionMessage();
     }, [currentQuestionIndex]);
@@ -135,9 +191,9 @@ const App = () => {
                         <IoChevronBack size={12} color={"black"}></IoChevronBack>
                     </IconButton>
                 </div>
-                <div>스껄키우기</div>
+                <div>{userName}키우기</div>
                 <div>
-                    <Button fill="true" bordertype="round" color={"#FFFFFF"} onClick={() => setIsModalOpen(true)}>
+                    <Button fill="true" bordertype="round" color={"#FFFFFF"} onClick={() => setIsModalOpen(true)} disabled={isLoading}>
                         <p className={styles.blackColor}>선택지 열기</p>
                     </Button>
                 </div>
@@ -147,7 +203,7 @@ const App = () => {
                 <MessageList messages={messages} currentTypingId={currentTypingId} onEndTyping={handleEndTyping} />
                 <div ref={messageEndRef} />
             </div>
-            <BottomNav placeholder="메세지 보내기..." onSendMessage={handleSendMessage} disabled={false} />
+            <BottomNav placeholder="메세지 보내기..." onSendMessage={handleSendMessage} disabled={isLoading} />
             <div>
                 {isModalOpen && (
                     <Modal>

@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
     justify-content: space-between;
     padding: 16px 16px 16px 16px;
     width: 100%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
 
     > div {
         width: 100%;

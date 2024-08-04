@@ -27,7 +27,7 @@ const Backdrop = styled.div`
     justify-content: center;
     align-items: center;
 
-    z-index: 1000;
+    z-index: 2;
 `;
 
 // Model 박스
@@ -40,14 +40,14 @@ const ModalBox = styled.div`
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    z-index: 1001;
+    z-index: 3;
 
     padding-top: 3rem;
     padding-right: 3rem;
     padding-bottom: 3rem;
     padding-left: 3rem;
 
-    animation: ${slideUp} 0.5s ease-out forwards;
+    animation: ${slideUp} 0.8s ease-out forwards;
 
     // close button
     > button {

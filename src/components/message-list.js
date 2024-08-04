@@ -74,7 +74,7 @@ const StyledMessageList = styled.div`
 
 const profileStyle = {
     borderRadius: "50%",
-    border: "2px solid #000000",
+    border: "3px solid rgba(100, 100, 0, 0.3)",
 };
 
 const groupMessageById = (messageList) => {

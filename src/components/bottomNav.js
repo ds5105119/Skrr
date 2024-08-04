@@ -6,7 +6,7 @@ const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 10px 10px 12px 10px;
+    padding: 10px 10px 18px 10px;
 `;
 
 const BottomNav = ({ placeholder, onSendMessage, disabled }) => {
