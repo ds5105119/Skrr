@@ -31,7 +31,7 @@
 <img src="https://vigorous-summer-9f1.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe356c91b-b91d-4db6-a60d-8969d0bcddb6%2F13a067ad-5f45-469e-ac01-7b7069202ae0%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-08-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.16.22.png?table=block&id=2cd829c8-227e-44d0-b478-aff78e038223&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6">
 
 ## 테스트 화면
-<img src="https://file.notion.so/f/f/e356c91b-b91d-4db6-a60d-8969d0bcddb6/ee466da2-ffb8-4af5-922c-fe1d85f43d6e/ezgif-6-4765046285.gif?table=block&id=6a6fbfd1-b905-472b-99d8-5aeca9ab29f8&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6&expirationTimestamp=1722880800000&signature=cTPlDmhb7cPqpcICtYj0-Hycv2dfU8XsLkJPGvZpq5I">
+<img src="https://file.notion.so/f/f/e356c91b-b91d-4db6-a60d-8969d0bcddb6/ee466da2-ffb8-4af5-922c-fe1d85f43d6e/ezgif-6-4765046285.gif?table=block&id=6a6fbfd1-b905-472b-99d8-5aeca9ab29f8&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6&expirationTimestamp=1723363200000&signature=UDm8Z-yOHBycdA7FeVMEHPx08ZzK3QKT5vm-sRxKhM4" art="시연 화면입니다. 로딩에 수 초 이내의 시간이 걸릴 수 있습니다.">
 
 ## 간단 후기
 - React, Next js를 배워보고 싶었는데, 이번 기회에 배울 수 있었습니다.
