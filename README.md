@@ -6,9 +6,13 @@
 
 ### 🎯 목적
 
+일주일의 자유 프로젝트 기간동안 React와 Next.js를 배워서 진행해보면 어떨까 하는 마음에 시작한 프로젝트입니다.
+
 20가지의 질문에 답을 해서 아이를 키우는 GPT4 Powered Application 입니다.
 
-많은 조건 분기 알고리즘을 AI에게 맡기므로, 간단한 코드 작성이 가능합니다.
+많은 조건 분기 알고리즘을 AI에게 맡기므로, 알고리즘 부분은 간단한 코드 작성이 가능합니다.
+
+배포는 Vercel을 사용하였습니다.
 
 ## 📚 Tech Stack
 
@@ -23,15 +27,11 @@
 
 ## Figma (🔗 <a href="https://www.figma.com/design/8tgG2wQn0ryBXgiOaLkkmZ/%EC%8A%A4%EA%BB%84-%ED%82%A4%EC%9A%B0%EA%B8%B0?node-id=0-1&t=fwySp9zKTbs9u5Zs-1">Figma 링크</a>)
 
-## WBS (🔗 <a href="https://app.asana.com/0/1207935006724860/1207935014952342">Asana 링크</a>)
-<img src="https://vigorous-summer-9f1.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe356c91b-b91d-4db6-a60d-8969d0bcddb6%2Fce74125d-003e-4d14-9910-b3309954e004%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-07-31_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%258C%25E1%2585%25A5%25E1%2586%25AB_2.09.27.png?table=block&id=c44e9e96-cb8a-44b1-b3e2-7e7508f68354&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6">
+## WBS
+<img src="https://vigorous-summer-9f1.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe356c91b-b91d-4db6-a60d-8969d0bcddb6%2F13a067ad-5f45-469e-ac01-7b7069202ae0%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-08-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.16.22.png?table=block&id=2cd829c8-227e-44d0-b478-aff78e038223&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6">
 
 ## 테스트 화면
 <img src="https://file.notion.so/f/f/e356c91b-b91d-4db6-a60d-8969d0bcddb6/ee466da2-ffb8-4af5-922c-fe1d85f43d6e/ezgif-6-4765046285.gif?table=block&id=6a6fbfd1-b905-472b-99d8-5aeca9ab29f8&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6&expirationTimestamp=1722880800000&signature=cTPlDmhb7cPqpcICtYj0-Hycv2dfU8XsLkJPGvZpq5I">
 
 ## 간단 후기
-- 약 일주일만에 진행한 프로젝트여서 많이 엉성하다..
-- ShareAPI를 통해 apple 기기의 쉐어 기능을 사용하고 싶었지만 시간상 어려웠다.
-- 몇몇 컴포넌트는 resize시, 문제가 있다.
-- 일주일간 React 학습과 프로젝트 진행을 같이 하여서 날이 갈수록 이전에 만든 부분에서 아쉬운 부분이 많이 보였다.
-- 향후 다시 수정할 예정..
+- React, Next js를 배워보고 싶었는데, 이번 기회에 배울 수 있었습니다.
