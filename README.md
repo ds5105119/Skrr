@@ -25,9 +25,9 @@
 ### ✔️ WBS
 <img src="https://img.shields.io/badge/asana-F06A6A?style=for-the-badge&logo=asana&logoColor=white"/>
 
-## Figma (🔗 <a href="https://www.figma.com/design/8tgG2wQn0ryBXgiOaLkkmZ/%EC%8A%A4%EA%BB%84-%ED%82%A4%EC%9A%B0%EA%B8%B0?node-id=0-1&t=fwySp9zKTbs9u5Zs-1">Figma 링크</a>)
+## 🎨 Figma (🔗 <a href="https://www.figma.com/design/8tgG2wQn0ryBXgiOaLkkmZ/%EC%8A%A4%EA%BB%84-%ED%82%A4%EC%9A%B0%EA%B8%B0?node-id=0-1&t=fwySp9zKTbs9u5Zs-1">Figma 링크</a>)
 
-## WBS
+## 🗓️ WBS
 <img src="https://vigorous-summer-9f1.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe356c91b-b91d-4db6-a60d-8969d0bcddb6%2F13a067ad-5f45-469e-ac01-7b7069202ae0%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-08-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.16.22.png?table=block&id=2cd829c8-227e-44d0-b478-aff78e038223&spaceId=e356c91b-b91d-4db6-a60d-8969d0bcddb6">
 
 ## 테스트 화면
